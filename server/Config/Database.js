@@ -4,11 +4,11 @@ const connectDB = async () => {
     try {
         await mongoose.connect(process.env.MONGO_URL, {
             useNewUrlParser: true,
-            useUnifiedTopology: true,
+            useUnifiedTopology: true
         });
-        console.log('MongoDB Connected...');
-    } catch (err) {
-        console.error('Error connecting to MongoDB:', err.message);
+        console.log('MongoDB connected successfully');
+    } catch (error) {
+        console.error('MongoDB connection error:', error);
         process.exit(1);
     }
 };

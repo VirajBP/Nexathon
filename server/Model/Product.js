@@ -1,44 +1,31 @@
 const mongoose = require("mongoose");
 
-const ProductSchema = new mongoose.Schema({
+const productSchema = new mongoose.Schema({
     farmer: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Farmer',
         required: true
     },
-    name: {
+    productName: {
         type: String,
         required: true
     },
-    category: {
+    productVariety: {
         type: String,
         required: true
     },
-    expectedHarvestDate: {
+    quantity: {
+        type: Number,
+        required: true
+    },
+    price: {
+        type: Number,
+        required: true
+    },
+    estimatedDate: {
         type: Date,
         required: true
-    },
-    estimatedQuantity: {
-        type: Number,
-        required: true
-    },
-    availableQuantity: {
-        type: Number,
-        required: true
-    },
-    unit: {
-        type: String,
-        required: true
-    },
-    pricePerUnit: {
-        type: Number,
-        required: true
-    },
-    status: {
-        type: String,
-        enum: ['upcoming', 'available', 'sold'],
-        default: 'upcoming'
     }
 }, { timestamps: true });
 
-module.exports = mongoose.model('Product', ProductSchema); 
+module.exports = mongoose.model('Product', productSchema); 

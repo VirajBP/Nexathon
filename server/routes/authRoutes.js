@@ -3,9 +3,11 @@ const router = express.Router();
 const { register, login } = require('../Controllers/authController');
 
 // Register routes
-router.post('/register/:userType', register);
+router.post('/farmer/register', register);
+router.post('/consumer/register', register);
 
 // Login route
-router.post('/login', login);
+router.post('/farmer/login', login);
+router.post('/consumer/login', login);
 
 module.exports = router; 

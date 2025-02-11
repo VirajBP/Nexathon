@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const ConsumerSchema = new mongoose.Schema({
+const consumerSchema = new mongoose.Schema({
     name: {
         type: String,
         required: true
@@ -14,19 +14,23 @@ const ConsumerSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    type: {
+    phoneNumber: {
         type: String,
-        enum: ['supermarket', 'restaurant', 'healthcare', 'food processing', 'Events', 'ngo'],
         required: true
     },
     location: {
         type: String,
         required: true
     },
-    phoneNumber: {
+    type: {
         type: String,
-        required: true
+        required: true,
+        enum: ['Restaurant', 'Retailer', 'Wholesaler']
+    },
+    joinedDate: {
+        type: Date,
+        default: Date.now
     }
 }, { timestamps: true });
 
-module.exports = mongoose.model('Consumer', ConsumerSchema); 
+module.exports = mongoose.model('Consumer', consumerSchema); 
